@@ -1,0 +1,22 @@
+{
+ "align_labels_right": 0, 
+ "creation": "2018-09-21 10:45:41.241574", 
+ "custom_format": 0, 
+ "disabled": 0, 
+ "doc_type": "Incident", 
+ "docstatus": 0, 
+ "doctype": "Print Format", 
+ "font": "Default", 
+ "format_data": "[{\"fieldname\": \"print_heading_template\", \"fieldtype\": \"Custom HTML\", \"options\": \"<div class=\\\"row\\\">\\n\\t<div class=\\\"col-xs-5\\\"><label>Incident No</label></div>\\n\\t<div class=\\\"col-xs-7\\\">{{ doc.name }}</div>\\n</div>\"}, {\"fieldtype\": \"Section Break\", \"label\": \"\"}, {\"fieldtype\": \"Column Break\"}, {\"print_hide\": 0, \"fieldname\": \"date\", \"label\": \"Date\"}, {\"print_hide\": 0, \"fieldname\": \"customer\", \"label\": \"Customer\"}, {\"print_hide\": 0, \"fieldname\": \"alarm_no\", \"label\": \"Alarm No\"}, {\"print_hide\": 0, \"fieldname\": \"assign_to\", \"label\": \"Assign To\"}, {\"fieldtype\": \"Section Break\", \"label\": \"\"}, {\"fieldtype\": \"Column Break\"}, {\"print_hide\": 0, \"fieldname\": \"_custom_html\", \"options\": \"<style>\\n.print-format table, .print-format tr,\\n.print-format td, .print-format div, .print-format p {\\n    font-family: Monospace;\\n    font-size: 10px;\\n    line-height: 200%;\\n    vertical-align: middle;\\n}\\n@media screen {\\n    .print-format {\\n        width: 58mm;\\n        padding: 3mm;\\n        min-height: 100mm;\\n    }\\n}\\n</style>\\n<hr>\\n{%- for sheet in frappe.get_list(doctype=\\\"Job Sheet\\\", fields=[\\\"name\\\", \\\"date\\\", \\\"employee\\\", \\\"machine_item\\\", \\\"service_desc\\\", \\\"time_in\\\", \\\"time_out\\\", \\\"time_break\\\", \\\"total_time\\\", \\\"materials_parts_used\\\"], filters={ \\\"incident\\\": doc.name } )\\n-%}\\n<div style=\\\"border: 1px solid #d1d8dd;border-radius: 3px;padding: 10px;\\\">\\n    <div class=\\\"row\\\">\\n        <div class=\\\"col-xs-5\\\"><label>Job Sheet</label></div>\\n        <div class=\\\"col-xs-7\\\">{{ sheet.name }}</div>\\n    </div>\\n    <div class=\\\"row\\\">\\n        <div class=\\\"col-xs-5\\\"><label>Date</label></div>\\n        <div class=\\\"col-xs-7\\\">{{ sheet.date}}</div>\\n    </div>\\n    <div class=\\\"row\\\">\\n        <div class=\\\"col-xs-5\\\"><label>Engineer No</label></div>\\n        <div class=\\\"col-xs-7\\\">{{ sheet.employee }}</div>\\n    </div>\\n    {% if sheet.machine_item %}\\n        <div class=\\\"row\\\">\\n            <div class=\\\"col-xs-5\\\"><label>Engineer Name</label></div>\\n            <div class=\\\"col-xs-7\\\">{{ frappe.get_doc(\\\"Employee\\\", sheet.employee ).employee_name }}</div>\\n        </div>\\n    {% endif %}\\n\\n    {% if sheet.machine_item %}\\n        <div class=\\\"row\\\">\\n            <div class=\\\"col-xs-5\\\"><label>Machine Serial No</label></div>\\n            <div class=\\\"col-xs-7\\\">{{ frappe.get_doc(\\\"Item\\\", sheet.machine_item).item_name }}</div>\\n        </div>\\n    {% endif %}\\n\\n    <table class=\\\"table table-bordered\\\">\\n        <tbody>\\n        <tr>\\n            <th>Time In</th>\\n            <th>Time Out</th>\\n\\t    <th>Break Time</th>\\n\\t    <th>Total Time</th>\\n        </tr>\\n        <tr>\\n            <td>{{ sheet.time_in }}</td>\\n            <td>{{ sheet.time_out }}</td>\\n\\t    <td>{{ sheet.time_break }}</td>\\n            <td>{{ sheet.total_time }}</td>\\n        </tr>\\n        <tr>\\n        </tr>\\n        </tbody>\\n    </table>\\n    <div class=\\\"row\\\">\\n        <div class=\\\"col-xs-5\\\"><label>Service Description</label></div>\\n        <div class=\\\"col-xs-7\\\">{{ sheet.service_desc or \\\"\\\" }}</div>\\n    </div>\\n    <div class=\\\"row\\\">\\n        <div class=\\\"col-xs-5\\\"><label>Materials & Parts Used</label></div>\\n        <div class=\\\"col-xs-7\\\">{{ sheet.materials_parts_used or \\\"\\\" }}</div>\\n    </div>\\n</div>\\n{%- endfor -%}\", \"fieldtype\": \"HTML\", \"label\": \"Custom HTML\"}]", 
+ "idx": 0, 
+ "line_breaks": 0, 
+ "modified": "2018-12-23 10:08:22.285453", 
+ "modified_by": "Neel2292@gmail.com", 
+ "module": "Service Note", 
+ "name": "Incident", 
+ "owner": "Neel2292@gmail.com", 
+ "print_format_builder": 1, 
+ "print_format_type": "Server", 
+ "show_section_headings": 0, 
+ "standard": "Yes"
+}

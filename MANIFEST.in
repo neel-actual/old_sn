@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include erpx_service_note *.css
+recursive-include erpx_service_note *.csv
+recursive-include erpx_service_note *.html
+recursive-include erpx_service_note *.ico
+recursive-include erpx_service_note *.js
+recursive-include erpx_service_note *.json
+recursive-include erpx_service_note *.md
+recursive-include erpx_service_note *.png
+recursive-include erpx_service_note *.py
+recursive-include erpx_service_note *.svg
+recursive-include erpx_service_note *.txt
+recursive-exclude erpx_service_note *.pyc

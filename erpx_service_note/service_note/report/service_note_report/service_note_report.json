@@ -1,0 +1,25 @@
+{
+ "add_total_row": 1, 
+ "apply_user_permissions": 1, 
+ "creation": "2018-12-10 20:50:03.065254", 
+ "disabled": 0, 
+ "docstatus": 0, 
+ "doctype": "Report", 
+ "idx": 0, 
+ "is_standard": "Yes", 
+ "letter_head": "Numac Machinery Sdn Bhd Letter Head", 
+ "modified": "2018-12-18 14:12:51.173200", 
+ "modified_by": "Administrator", 
+ "module": "Service Note", 
+ "name": "Service Note Report", 
+ "owner": "Administrator", 
+ "query": "SELECT\n  `tabIncident`.name as \"Incident No\",\n  `tabIncident`.date as \"Date\",\n  `tabIncident`.alarm_no as \"Alarm No\",\n  `tabIncident`.customer as \"Customer\",\n  `tabIncident`.contact_person as \"Contact Person\",\n  `tabIncident`.mobile as \"Mobile\",\n  `tabIncident`.assign_to as \"Assign To\",\n  `tabIncident`.assign_to_2 as \"Assign To 2\",\n  `tabIncident`.assign_to_3 as \"Assign To 3\",\n  `tabIncident`.assign_to_4 as \"Assign To 4\",\n  `tabIncident`.contact_person as \"Contact Person\",\n\n  `tabJob Sheet`.name as \"Job Sheet No\",\n  `tabJob Sheet`.date as \"Date\",\n  `tabJob Sheet`.issue_desc as \"Issue Description\",\n  `tabJob Sheet`.employee as \"employee\",\n  `tabJob Sheet`.state as \"Engineer origin State\",\n  `tabJob Sheet`.machine_item as \"Machine Serial No (Item Code)\",\n\n  `tabJob Sheet`.time_in as \"Login Date/Time\",\n  `tabJob Sheet`.time_out as \"Logout Date/Time\",\n  `tabJob Sheet`.time_break as \"Break Time Duration\",\n  `tabJob Sheet`.total_time as \"Total Hours (hrs)\",\n\n  `tabJob Sheet`.service_desc as \"Service Description\",\n  `tabJob Sheet`.materials_parts_used as \"Materials & Parts Used\",\n  `tabJob Sheet`.remarks as \"Remarks\",\n\n  `tabJob Sheet`.service_rendered_delivery as \"Delivery\",\n  `tabJob Sheet`.service_rendered_installation as \"Installation\",\n  `tabJob Sheet`.service_rendered_levelling as \"Levelling\",\n  `tabJob Sheet`.service_rendered_training as \"Training\",\n  `tabJob Sheet`.service_rendered_setting_up as \"Setting Up\",\n  `tabJob Sheet`.service_rendered_operation as \"Operation\",\n  `tabJob Sheet`.service_rendered_test_cut as \"Test Cut\",\n\n  `tabJob Sheet`.job_status_maintenance_contract as \"Maintenance Contract\",\n  `tabJob Sheet`.job_status_new_machine as \"New Machine\",\n  `tabJob Sheet`.job_status_service_charge as \"Service Charge\",\n  `tabJob Sheet`.job_status_no_charge as \"No Charge\",\n  `tabJob Sheet`.job_status_incident_follow_up as \"Incident to Follow Up\",\n  `tabJob Sheet`.job_status_incident_closed as \"Incident Closed\"\nFROM\n  `tabIncident`\nLEFT JOIN\n  `tabJob Sheet` ON `tabIncident`.name = `tabJob Sheet`.incident", 
+ "ref_doctype": "Incident", 
+ "report_name": "Service Note Report", 
+ "report_type": "Query Report", 
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}
